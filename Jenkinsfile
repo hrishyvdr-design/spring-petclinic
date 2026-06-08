@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         maven 'Maven3'
+        sonarQubeScanner 'SonarScanner'
     }
 
     stages {
@@ -22,7 +23,6 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 echo 'Running Code Quality Check via SonarQube...'
-                // ജെങ്കിൻസിൽ നമ്മൾ കൊടുത്ത 'SonarQube' എന്ന പേര് ഇവിടെ കൃത്യമായി നൽകണം
                 withSonarQubeEnv('SonarQube') {
                     sh 'mvn sonar:sonar'
                 }
