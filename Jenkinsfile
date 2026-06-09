@@ -40,6 +40,5 @@ pipeline {
                     -Dmaven.wagon.http.ssl.allowall=true'
             }
         }
-
     }
 }
