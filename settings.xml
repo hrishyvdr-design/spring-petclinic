@@ -1,6 +1,6 @@
-<settings xmlns="http://apache.org"
+<settings xmlns="https://apache.org"
           xmlns:xsi="http://w3.org"
-          xsi:schemaLocation="http://apache.org https://apache.org">
+          xsi:schemaLocation="https://apache.org https://apache.org">
     <servers>
         <server>
             <id>maven-releases</id>
