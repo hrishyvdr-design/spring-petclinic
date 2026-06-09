@@ -5,7 +5,7 @@
         <server>
             <id>maven-releases</id>
             <username>admin</username>
-            <password>Support@6Dtech</password>
+            <password>hrishikesh</password>
         </server>
     </servers>
 </settings>
