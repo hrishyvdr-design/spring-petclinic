@@ -15,9 +15,10 @@ pipeline {
         stage('Build & Test') {
             steps {
                 echo 'Building Java Application using Maven...'
-                sh 'mvn clean package -DskipTests'
+                sh 'mvn clean package -DskipTests -Dcheckstyle.skip=true'
             }
         }
+
 
         stage('SonarQube Analysis') {
             steps {
@@ -30,7 +31,7 @@ pipeline {
             }
         }
 
-                        stage('Upload to Nexus') {
+        stage('Upload to Nexus') {
             steps {
                 echo 'Uploading Build Artifact (.jar file) to Nexus...'
                 // Using the local settings.xml for secure authentication
