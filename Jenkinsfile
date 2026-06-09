@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3'
-        sonarqubeScanner 'SonarScanner'
+        maven 'Maven3' // Loading Maven tool configured in Jenkins
     }
 
     stages {
@@ -23,7 +22,9 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 echo 'Running Code Quality Check via SonarQube...'
+                // Using the server named 'SonarQube' that we created in Jenkins settings
                 withSonarQubeEnv('SonarQube') {
+                    // Maven will automatically trigger the sonar scan
                     sh 'mvn sonar:sonar'
                 }
             }
@@ -32,7 +33,6 @@ pipeline {
         stage('Upload to Nexus') {
             steps {
                 echo 'Uploading Build Artifact (.jar file) to Nexus...'
-                // നെക്സസ് സ്റ്റെപ്പ് നമ്മൾ അടുത്ത ഘട്ടത്തിൽ ചെയ്യും
             }
         }
     }
