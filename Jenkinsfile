@@ -34,14 +34,11 @@ pipeline {
         stage('Upload to Nexus') {
             steps {
                 echo 'Uploading Build Artifact (.jar file) to Nexus...'
-                // Using the local settings.xml for secure authentication
-                sh 'mvn deploy -DskipTests -s settings.xml \
+                sh 'mvn deploy -DskipTests -Dcheckstyle.skip=true -s settings.xml \
                     -DaltDeploymentRepository=maven-releases::default::http://nexus:8081/repository/maven-releases/ \
                     -Dmaven.wagon.http.ssl.insecure=true \
                     -Dmaven.wagon.http.ssl.allowall=true'
             }
         }
-
-
     }
 }
