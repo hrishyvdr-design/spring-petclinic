@@ -30,18 +30,17 @@ pipeline {
             }
         }
 
-                stage('Upload to Nexus') {
+                        stage('Upload to Nexus') {
             steps {
                 echo 'Uploading Build Artifact (.jar file) to Nexus...'
-                // Adding default Nexus credentials directly to the deploy command
-                sh 'mvn deploy -DskipTests \
+                // Using the local settings.xml for secure authentication
+                sh 'mvn deploy -DskipTests -s settings.xml \
                     -DaltDeploymentRepository=maven-releases::default::http://nexus:8081/repository/maven-releases/ \
                     -Dmaven.wagon.http.ssl.insecure=true \
-                    -Dmaven.wagon.http.ssl.allowall=true \
-                    -Dusername=admin \
-                    -Dpassword=Support@6Dtech' 
+                    -Dmaven.wagon.http.ssl.allowall=true'
             }
         }
+
 
     }
 }
