@@ -2,8 +2,16 @@
           xmlns:xsi="http://w3.org"
           xsi:schemaLocation="https://apache.org https://apache.org">
     <servers>
+        <!-- Credential for Releases -->
         <server>
             <id>maven-releases</id>
+            <username>admin</username>
+            <password>hrishikesh</password>
+        </server>
+        
+        <!-- Credential for Snapshots (This was missing!) -->
+        <server>
+            <id>maven-snapshots</id>
             <username>admin</username>
             <password>hrishikesh</password>
         </server>
