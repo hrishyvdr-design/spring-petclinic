@@ -35,10 +35,11 @@ pipeline {
             steps {
                 echo 'Uploading Build Artifact (.jar file) to Nexus...'
                 sh 'mvn deploy -DskipTests -Dcheckstyle.skip=true -s settings.xml \
-                    -DaltDeploymentRepository=maven-releases::default::http://nexus:8081/repository/maven-releases/ \
+                    -DaltDeploymentRepository=maven-snapshots::default::http://nexus:8081/repository/maven-snapshots/ \
                     -Dmaven.wagon.http.ssl.insecure=true \
                     -Dmaven.wagon.http.ssl.allowall=true'
             }
         }
+
     }
 }
